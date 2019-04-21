@@ -1,7 +1,9 @@
 # new
 
 > A Vue.js project
+
 > 此项目用来快速构建新的vue项目，此项目中配置好了常用的插件
+
 > 更新中
 
 ## Build Setup
