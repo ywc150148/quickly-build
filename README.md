@@ -34,6 +34,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ```bash
+
 # 把工作区文件全部提交到缓存区
 git add .  
 
