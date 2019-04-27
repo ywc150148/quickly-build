@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './config/store.js'
+import api from './config/api.js'
 
 import axios from './config/axios.js'
 Vue.prototype.$axios = axios

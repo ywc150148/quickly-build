@@ -7,7 +7,15 @@
         <router-link :to="'/read/'+item.id">阅读</router-link>
       </li>
     </ul>
-    <loadmore :state="lm.state" :throttle="lm.throttle" :pretrigger="5"  @onBottom="triggerBottom" @onRest="handelRest" v-show="count>limit && datalist.length>1"></loadmore>
+    <loadmore
+      :state="lm.state"
+      :throttle="lm.throttle"
+      :pretrigger="5"
+      @onGetdata="triggerBottom"
+      @onBottom="triggerBottom"
+      @onRest="handelRest"
+      v-show="count>limit && datalist.length>1"
+    ></loadmore>
   </div>
 </template>
 
@@ -22,7 +30,7 @@ export default {
       datalist: [],
       count: 999999999,
       page: 1,
-      limit: 10,
+      limit: 2,
       lm: {
         state: 0,
         throttle: false
@@ -39,8 +47,11 @@ export default {
     getData: function() {
       const that = this;
 
+      this.lm.throttle = true;
+      this.lm.state = 1;
+
       this.$axios
-        .get("/app/api/v1/topics", {
+        .get(API.Open.topics, {
           params: {
             page: that.page,
             limit: that.limit
@@ -62,15 +73,13 @@ export default {
     triggerBottom: function() {
       // 触发底部 做什么...
       if (this.datalist.length < this.count && this.lm.throttle === false) {
-        this.lm.throttle = true;
-        this.lm.state = 1;
         this.getData();
       }
     },
     handelRest: function() {
       // 点击重试 做什么...
       this.triggerBottom();
-    },
+    }
   }
 };
 </script>
@@ -99,6 +108,7 @@ export default {
   text-align: left;
   background: rgb(233, 233, 233);
   box-sizing: border-box;
+  cursor: pointer;
 }
 </style>
 

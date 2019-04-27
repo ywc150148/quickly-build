@@ -1,31 +1,38 @@
 <template>
   <div id="app">
-
-    
-    <!-- <product-list-one></product-list-one>
-    <product-list-two></product-list-two> -->
-
+    <p>登录状态：{{getStats===true?'你好，xxx':'未登录'}}</p>
+    <p @click="handeLoginin">点击登录</p>
+    <p @click="handeLoginout">退出登录</p>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
-
     <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
 <script>
-import ProductListOne from './components/ProductListOne.vue'
-import ProductListTwo from './components/ProductListTwo.vue'
+import ProductListOne from "./components/ProductListOne.vue";
 export default {
   name: "App",
-  components: {
-    "product-list-one": ProductListOne,
-    "product-list-two": ProductListTwo
-  },
   data() {
     return {
-      
     };
+  },
+  components: {
+    "product-list-one": ProductListOne
+  },
+  computed: {
+    getStats: function() {
+      return this.$store.state.isLogin;
+    }
+  },
+  methods: {
+    handeLoginin: function() {
+      this.$store.commit("login_in", true);
+    },
+    handeLoginout: function() {
+      this.$store.commit("login_out", false);
+    }
   }
 };
 </script>

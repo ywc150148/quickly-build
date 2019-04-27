@@ -29,3 +29,18 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# Git命令
+
+
+```bash
+# 把工作区文件全部提交到缓存区
+git add .  
+
+# 将缓存中的文件Commit到git库
+git commit -m "添加注释"
+
+# 提交到远程库
+git push origin master
+
+```

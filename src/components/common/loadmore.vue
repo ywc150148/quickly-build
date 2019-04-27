@@ -2,7 +2,7 @@
   <div class="loadmore">
     <div class="load-more" :class="showload==true?'load-more-show':''">
       <div v-show="state===0">
-        <span class="load-more-span">下拉获取更多数据...</span>
+        <span class="load-more-span" @click="handelGetdata">获取更多数据</span>
       </div>
       <div v-show="state===1">
         <span class="iconfont icon-jiazaizhong load-more-span loadding-animate"></span>
@@ -60,6 +60,10 @@ export default {
         this.$emit("onBottom");
       }
     },
+    handelGetdata: function() {
+      // 点击获取数据
+      this.$emit("onGetdata");
+    },
     handelRest: function() {
       // 点击重试
       this.$emit("onRest");
@@ -104,6 +108,7 @@ export default {
 .load-more-span {
   font-size: 14px;
   color: #0c0c0c;
+  cursor: pointer;
 }
 
 @-webkit-keyframes loadmoreanimate {

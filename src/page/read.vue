@@ -32,7 +32,7 @@ export default {
       const that = this;
 
       this.$axios
-        .get("/app/api/v1/topic/" + that.$route.params.id, {
+        .get(API.Open.topic + that.$route.params.id, {
           params: {}
         })
         .then(function(response) {
