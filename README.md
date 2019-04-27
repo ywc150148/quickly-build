@@ -6,7 +6,7 @@
 
 > 更新中...
 
-[我的博客](http://yapiguai.top).
+我的博客上面发布了我的学习笔记，博客地址[http://yapiguai.top](http://yapiguai.top)
 
 ## Build Setup
 
